@@ -1,43 +1,121 @@
 import { useState, useEffect } from 'react'
-import { TextHoverEffect } from './components/ui/text-hover-effect'
 import './App.css'
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' })
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
-  const skills = [
-    { name: 'React', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'JavaScript', level: 95 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'SQL', level: 70 }
-  ]
-
-  const projects = [
+  const teachingServices = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop'
+      title: 'Conversational English',
+      description: 'Improve your speaking confidence through natural conversations about daily life, culture, and interests.',
+      features: ['Daily conversation practice', 'Pronunciation improvement', 'Cultural exchange', 'Real-world vocabulary'],
+      rate: '$25/hour',
+      format: 'Online/In-person'
     },
     {
-      title: 'Task Management App',
-      description: 'Real-time collaborative task management with drag-and-drop interface',
-      tech: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop'
+      title: 'Business English',
+      description: 'Master professional English for meetings, presentations, emails, and workplace communication.',
+      features: ['Business vocabulary', 'Presentation skills', 'Email writing', 'Meeting participation'],
+      rate: '$30/hour',
+      format: 'Online/In-person'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Interactive weather dashboard with location-based forecasts',
-      tech: ['React', 'OpenWeather API', 'Chart.js', 'Geolocation'],
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=300&fit=crop'
+      title: 'Exam Preparation',
+      description: 'Targeted preparation for IELTS, TOEFL, Cambridge exams, and other English proficiency tests.',
+      features: ['Test strategies', 'Practice exams', 'Score improvement', 'Time management'],
+      rate: '$35/hour',
+      format: 'Online'
+    },
+    {
+      title: 'Kids\' English',
+      description: 'Fun and engaging English lessons for children aged 6-12 using games, songs, and interactive activities.',
+      features: ['Interactive games', 'Storytelling', 'Basic grammar', 'Vocabulary building'],
+      rate: '$20/hour',
+      format: 'Online/In-person'
     }
   ]
+
+  const credentials = [
+    { name: 'CELTA Certificate', institution: 'Cambridge University', year: '2022' },
+    { name: 'TEFL Certification', institution: 'International TEFL Academy', year: '2021' },
+    { name: 'Bachelor of Education', institution: 'University of Toronto', year: '2020' },
+    { name: 'TESOL Advanced', institution: 'Trinity College London', year: '2023' }
+  ]
+
+  const languages = [
+    { language: 'English', level: 'Native' },
+    { language: 'Spanish', level: 'Fluent' },
+    { language: 'French', level: 'Intermediate' },
+    { language: 'Mandarin', level: 'Basic' }
+  ]
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: '' })
+
+    try {
+      console.log('Submitting form data:', formData)
+      
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      console.log('Response status:', response.status)
+      console.log('Response headers:', response.headers)
+
+      const data = await response.json()
+      console.log('Response data:', data)
+
+      if (data.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message
+        })
+        setFormData({ name: '', email: '', service: '', message: '' })
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.message || 'Something went wrong. Please try again.'
+        })
+      }
+    } catch (error) {
+      console.error('Fetch error:', error)
+      setSubmitStatus({
+        type: 'error',
+        message: `Network error: ${error instanceof Error ? error.message : 'Unknown error'}`
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className={`app ${isLoaded ? 'loaded' : ''}`}>
@@ -45,13 +123,12 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
-            <span className="logo-text">Portfolio</span>
+            <span className="logo-text">Maria Luisa</span>
           </div>
           <ul className="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -61,30 +138,30 @@ function App() {
       <section id="home" className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <div className="hero-title-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <TextHoverEffect text="Sebastian" />
-              <TextHoverEffect text="Balderrama" />
+            <div className="hero-title-container">
+              <h1 className="hero-name">Maria Luisa</h1>
             </div>
-            <h2 className="hero-subtitle">Full-Stack Developer</h2>
+            <h2 className="hero-subtitle">ESL Teacher & Language Coach</h2>
             <p className="hero-description">
-              I create beautiful, functional, and user-centered digital experiences. 
-              Passionate about clean code and innovative solutions.
+              Helping students from around the world master English through personalized, 
+              engaging lessons. From beginners to advanced learners, I create a supportive 
+              environment where confidence grows and fluency develops naturally.
             </p>
             <div className="hero-buttons">
-              <button className="btn btn-primary">View My Work</button>
-              <button className="btn btn-secondary">Get In Touch</button>
+              <button className="btn btn-primary">Book a Free Trial</button>
+              <button className="btn btn-secondary">View My Resume</button>
             </div>
           </div>
           <div className="hero-image">
             <div className="profile-card">
               <div className="profile-avatar">
                 <div className="avatar-placeholder">
-                  <span>👨‍💻</span>
+                  <span>👩‍🏫</span>
                 </div>
               </div>
               <div className="profile-info">
-                <h3>Available for hire</h3>
-                <p>Open to new opportunities</p>
+                <h3>Available for lessons</h3>
+                <p>Flexible scheduling • All levels welcome</p>
               </div>
             </div>
           </div>
@@ -101,79 +178,112 @@ function App() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                I'm a passionate full-stack developer with 3+ years of experience building 
-                web applications. I love turning complex problems into simple, beautiful solutions.
+                Hello! I'm Sarah, a passionate ESL teacher with over 5 years of experience 
+                helping students from diverse backgrounds achieve their English language goals. 
+                My journey in education began when I discovered my love for connecting with 
+                people from different cultures through language.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing 
-                to open-source projects, or sharing knowledge with the developer community.
+                I believe that learning a language should be both effective and enjoyable. 
+                My teaching philosophy centers around creating a supportive, interactive 
+                environment where students feel confident to practice and make mistakes. 
+                Every lesson is tailored to individual needs, learning styles, and goals.
               </p>
+              <p>
+                When I'm not teaching, you'll find me reading books from around the world, 
+                practicing yoga, or exploring new cuisines. I love learning about different 
+                cultures and sharing stories with my students.
+              </p>
+              
               <div className="about-stats">
                 <div className="stat">
-                  <h3>3+</h3>
-                  <p>Years Experience</p>
+                  <h3>5+</h3>
+                  <p>Years Teaching</p>
                 </div>
                 <div className="stat">
-                  <h3>20+</h3>
-                  <p>Projects Completed</p>
+                  <h3>200+</h3>
+                  <p>Students Taught</p>
                 </div>
                 <div className="stat">
-                  <h3>15+</h3>
-                  <p>Happy Clients</p>
+                  <h3>4</h3>
+                  <p>Languages</p>
                 </div>
+              </div>
+
+              <div className="credentials-section">
+                <h3>Education & Certifications</h3>
+                <div className="credentials-grid">
+                  {credentials.map((credential, index) => (
+                    <div key={index} className="credential-card">
+                      <h4>{credential.name}</h4>
+                      <p>{credential.institution}</p>
+                      <span className="year">{credential.year}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="languages-section">
+                <h3>Languages I Speak</h3>
+                <div className="languages-grid">
+                  {languages.map((lang, index) => (
+                    <div key={index} className="language-card">
+                      <h4>{lang.language}</h4>
+                      <span className="level">{lang.level}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="resume-download">
+                <a href="/resume.pdf" className="btn btn-secondary" download>
+                  📄 Download My Resume
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="skills">
+      {/* Teaching Services Section */}
+      <section id="services" className="services">
         <div className="container">
-          <h2 className="section-title">Skills & Technologies</h2>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-card">
-                <div className="skill-header">
-                  <h3>{skill.name}</h3>
-                  <span className="skill-level">{skill.level}%</span>
+          <h2 className="section-title">Teaching Services</h2>
+          <div className="services-intro">
+            <p>
+              I offer personalized English lessons designed to meet your specific goals. 
+              Whether you're preparing for an exam, improving your business English, 
+              or just want to feel more confident speaking, I'm here to help!
+            </p>
+          </div>
+          <div className="services-grid">
+            {teachingServices.map((service, index) => (
+              <div key={index} className="service-card">
+                <div className="service-header">
+                  <h3>{service.title}</h3>
+                  <div className="service-rate">
+                    <span className="rate">{service.rate}</span>
+                    <span className="format">{service.format}</span>
+                  </div>
                 </div>
-                <div className="skill-bar">
-                  <div 
-                    className="skill-progress" 
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
+                <p className="service-description">{service.description}</p>
+                <div className="service-features">
+                  <h4>What's included:</h4>
+                  <ul>
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex}>{feature}</li>
+                    ))}
+                  </ul>
                 </div>
+                <button className="btn btn-primary">Book This Service</button>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="projects">
-        <div className="container">
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div key={index} className="project-card">
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <button className="btn btn-primary">View Project</button>
-                  </div>
-                </div>
-                <div className="project-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="project-tech">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+          
+          <div className="services-cta">
+            <h3>Ready to start your English journey?</h3>
+            <p>Book a free 30-minute trial lesson to see if we're a good fit!</p>
+            <button className="btn btn-primary">Contact Me for a Free Trial</button>
           </div>
         </div>
       </section>
@@ -184,34 +294,87 @@ function App() {
           <h2 className="section-title">Get In Touch</h2>
           <div className="contact-content">
             <div className="contact-info">
-              <h3>Let's work together</h3>
+              <h3>Let's start learning together!</h3>
               <p>
-                I'm always interested in hearing about new opportunities and exciting projects.
-                Feel free to reach out if you'd like to collaborate!
+                I'm excited to help you achieve your English language goals. 
+                Whether you have questions about my teaching methods or want to 
+                schedule your first lesson, feel free to reach out!
               </p>
               <div className="contact-links">
-                <a href="mailto:your.email@example.com" className="contact-link">
-                  📧 your.email@example.com
+                <a href="mailto:sarah.johnson@eslteacher.com" className="contact-link">
+                  📧 sarah.johnson@eslteacher.com
                 </a>
-                <a href="https://github.com/yourusername" className="contact-link">
-                  🐙 github.com/yourusername
+                <a href="https://linkedin.com/in/sarahjohnson-esl" className="contact-link">
+                  💼 linkedin.com/in/sarahjohnson-esl
                 </a>
-                <a href="https://linkedin.com/in/yourusername" className="contact-link">
-                  💼 linkedin.com/in/yourusername
+                <a href="https://instagram.com/sarahjohnson_esl" className="contact-link">
+                  📸 instagram.com/sarahjohnson_esl
                 </a>
+              </div>
+              <div className="availability">
+                <h4>My Availability:</h4>
+                <p>Monday - Friday: 9 AM - 8 PM (EST)</p>
+                <p>Saturday: 10 AM - 6 PM (EST)</p>
+                <p>Sunday: Available for special requests</p>
               </div>
             </div>
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              {submitStatus.type && (
+                <div className={`form-status ${submitStatus.type}`}>
+                  {submitStatus.message}
+                </div>
+              )}
               <div className="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Your Name" 
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Your Email" 
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required 
+                />
               </div>
               <div className="form-group">
-                <textarea placeholder="Your Message" rows={5} required></textarea>
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">Select Service</option>
+                  <option value="conversational">Conversational English</option>
+                  <option value="business">Business English</option>
+                  <option value="exam">Exam Preparation</option>
+                  <option value="kids">Kids' English</option>
+                </select>
               </div>
-              <button type="submit" className="btn btn-primary">Send Message</button>
+              <div className="form-group">
+                <textarea 
+                  name="message"
+                  placeholder="Tell me about your English learning goals and experience level..." 
+                  rows={5} 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
+              </div>
+              <button 
+                type="submit" 
+                className="btn btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
             </form>
           </div>
         </div>
@@ -220,7 +383,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2024 Your Name. All rights reserved.</p>
+          <p>&copy; 2024 Maria Luisa ESL. All rights reserved.</p>
         </div>
       </footer>
     </div>
