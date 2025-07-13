@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Beams from './components/Beams'
+import Silk from './components/Silk'
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [backgroundType, setBackgroundType] = useState<'beams' | 'silk'>('beams')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -118,21 +122,88 @@ function App() {
   }
 
   return (
-    <div className={`app ${isLoaded ? 'loaded' : ''}`}>
-      {/* Navigation */}
-      <nav className="navbar">
+    <>
+      {/* Background Effect - Switchable between Beams and Silk */}
+      <div className="background-beams">
+        {backgroundType === 'beams' ? (
+          <Beams
+            beamWidth={2}
+            beamHeight={15}
+            beamNumber={12}
+            lightColor="#ffffff"
+            speed={2}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+          />
+        ) : (
+          <Silk
+            speed={5}
+            scale={1}
+            color="#dd9ded"
+            noiseIntensity={1.5}
+            rotation={0}
+          />
+        )}
+      </div>
+
+      {/* Navigation - Outside the app container to avoid stacking context issues */}
+      <nav className="navbar" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        width: '100vw',
+        height: '70px',
+        background: 'transparent',
+        backdropFilter: 'blur(10px)',
+        zIndex: 99999,
+        borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+      }}>
         <div className="nav-container">
           <div className="nav-logo">
             <span className="logo-text">Maria Luisa</span>
           </div>
-          <ul className="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
+            <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
+            <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
+            <li><a href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</a></li>
+            <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
+            <li>
+              <button 
+                onClick={() => setBackgroundType(backgroundType === 'beams' ? 'silk' : 'beams')}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  color: '#ffffff',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {backgroundType === 'beams' ? '🌊 Silk' : '✨ Beams'}
+              </button>
+            </li>
           </ul>
+          <button 
+            className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </nav>
+
+      <div className={`app ${isLoaded ? 'loaded' : ''}`}>
+        {/* Main Content Container */}
+        <div className="main-content">
 
       {/* Hero Section */}
       <section id="home" className="hero">
@@ -386,7 +457,9 @@ function App() {
           <p>&copy; 2024 Maria Luisa ESL. All rights reserved.</p>
         </div>
       </footer>
-    </div>
+        </div>
+      </div>
+    </>
   )
 }
 

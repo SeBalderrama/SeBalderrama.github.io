@@ -12,7 +12,7 @@
 
   color-scheme: dark;
   color: #e0e0e0;
-  background-color: #0a0a0a;
+  background-color: transparent;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,18 +27,16 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: #0a0a0a;
+  background: transparent;
   color: #e0e0e0;
 }
 
 #root {
   width: 100%;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0;
+  text-align: left;
 }
 
 /* Smooth scrolling for the entire page */
