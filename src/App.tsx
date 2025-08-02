@@ -97,7 +97,7 @@ function App() {
       }}>
         <div className="nav-container">
           <div className="nav-logo">
-            <span className="logo-text">Sebastian Balderrama</span>
+            <span className="logo-text">SeBalderrama</span>
           </div>
           <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
             <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
@@ -152,7 +152,7 @@ function App() {
                   name="Sebastian Balderrama"
                   title="Full-Stack Software Developer"
                   handle="sebalderrama"
-                  status="Available for opportunities"
+                  status="Online"
                   contactText="Contact"
                   showUserInfo={true}
                   enableTilt={true}
@@ -175,7 +175,7 @@ function App() {
               <div className="about-content">
                 <div className="about-text">
                   <p>
-                    Greetings, fellow humans! I'm Sebastian Balderrama, a software dev in Waterloo. I have an Honours BSc in Computer Science & Mathematics at Wilfrid Lauirer University.
+                    Greetings, fellow humans! I'm Sebastian Balderrama, a software dev in Waterloo. I have an Honours BSc in <strong>Computer Science & Mathematics</strong> at Wilfrid Lauirer University.
                   </p>
                   <p>
                     I specialize in backend development and database systems using technologies like Python, Java, and Node.js. 
