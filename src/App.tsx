@@ -136,13 +136,13 @@ function App() {
                 </p>
                 <div className="hero-buttons">
                   <a href="https://github.com/sebalderrama" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    <span>🐙</span> GitHub
+                    GitHub
                   </a>
                   <a href="https://linkedin.com/in/sebalderrama" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                    <span>💼</span> LinkedIn
+                    LinkedIn
                   </a>
                   <a href="/resume.pdf" className="btn btn-secondary" download>
-                    <span>📄</span> Resume
+                    Resume
                   </a>
                 </div>
               </div>
