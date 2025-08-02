@@ -57,7 +57,7 @@ const easeInOutCubic = (x: number): number =>
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = "<Placeholder for avatar URL>",
   iconUrl = "<Placeholder for icon URL>",
-  grainUrl = "grain4card.webp",
+  grainUrl = "/grain4card.webp",
   behindGradient,
   innerGradient,
   showBehindGradient = true,
