@@ -18,7 +18,8 @@ function App() {
       techStack: ['React', 'Node.js', 'MongoDB', 'Railway', 'Express','Gemini'],
       githubLink: 'https://github.com/AhmadYahya-05/AlgorithmAthletes',
       liveDemo: 'https://devpost.com/software/fitness-quest-31h2ci',
-      image: 'fitquest1thumb.png'
+      image: 'fitquest1thumb.png',
+      hackathon: 'SpurHacks 2025 2nd Place'
     },
     {
       title: 'Canify',
@@ -26,7 +27,8 @@ function App() {
       techStack: ['JavaScript', 'Tailwind CSS', 'Flask', 'Rust', 'NEAR Shade Agents', 'Gemini'],
       githubLink: 'https://github.com/MBA380/Canify',
       liveDemo: 'https://dorahacks.io/buidl/23018/',
-      image: 'maple.png'
+      image: 'maple.png',
+      hackathon: 'Hack Canada 2025 Finalist'
     },
     {
       title: 'Paper',
@@ -35,6 +37,7 @@ function App() {
       githubLink: 'https://github.com/sebalderrama/weather-dashboard',
       //liveDemo: 'https://weather.sebalderrama.dev',
       image: 'paperthumb.png'
+      // No hackathon property = no label
     }
   ]
 
@@ -201,7 +204,12 @@ function App() {
                       <img src={project.image} alt={project.title} className="project-thumbnail" />
                     </div>
                     <div className="project-content">
-                      <h3>{project.title}</h3>
+                      <div className="project-title-row">
+                        <h3>{project.title}</h3>
+                        {project.hackathon && (
+                          <div className="hackathon-tag">{project.hackathon}</div>
+                        )}
+                      </div>
                       <p>{project.description}</p>
                       <div className="project-tech">
                         {project.techStack.map((tech, techIndex) => (
