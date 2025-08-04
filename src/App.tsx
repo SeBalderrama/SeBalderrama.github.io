@@ -144,7 +144,7 @@ function App() {
                   <a href="https://linkedin.com/in/sebalderrama" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                     LinkedIn
                   </a>
-                  <a href="/resume.pdf" className="btn btn-secondary" download>
+                  <a className="btn btn-secondary">
                     Resume
                   </a>
                 </div>
