@@ -184,9 +184,10 @@ function App() {
                     I specialize in backend development and database systems using technologies like Python, Java, and Node.js. 
                     I also have experience in frontend development with modern JavaScript frameworks including React, Vue.js, and Next.js, 
                     along with proficiency in TypeScript and responsive design principles.
+                    Love attending hackathons! I've been to 2 hackathons so far, and I'm looking forward to many more.
                   </p>
                   <p>
-                    In my free time, I'm probably outside, in the gym, or working on side projects. Currently, into mobile game dev 👀.
+                    In my free time, I'm probably outside, in the gym, geeking out on EDM, or working on side projects. Currently, into mobile game dev 👀.
                   </p>
                 </div>
               </div>
