@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import ProfileCard from './components/ProfileCard'
 import Particles from './components/Particles'
+import SkillsSection from './components/SkillsSection'
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -41,20 +42,7 @@ function App() {
     }
   ]
 
-  const skills = [
-    { name: 'JavaScript', level: 90, category: 'Programming Languages' },
-    { name: 'TypeScript', level: 85, category: 'Programming Languages' },
-    { name: 'Python', level: 80, category: 'Programming Languages' },
-    { name: 'React', level: 90, category: 'Frontend' },
-    { name: 'Node.js', level: 85, category: 'Backend' },
-    { name: 'Express.js', level: 80, category: 'Backend' },
-    { name: 'MongoDB', level: 75, category: 'Database' },
-    { name: 'PostgreSQL', level: 70, category: 'Database' },
-    { name: 'Git', level: 85, category: 'Tools' },
-    { name: 'Docker', level: 70, category: 'Tools' },
-    { name: 'AWS', level: 65, category: 'Cloud' },
-    { name: 'Firebase', level: 75, category: 'Cloud' }
-  ]
+
 
 
 
@@ -233,25 +221,7 @@ function App() {
           </section>
 
           {/* Skills Section */}
-          <section id="skills" className="skills">
-            <div className="container">
-              <h2 className="section-title">Skills & Technologies</h2>
-              <div className="skills-grid">
-                {skills.map((skill, index) => (
-                  <div key={index} className="skill-card">
-                    <div className="skill-header">
-                      <h3>{skill.name}</h3>
-                      <span className="skill-level">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div className="skill-progress" style={{ width: `${skill.level}%` }}></div>
-                    </div>
-                    <span className="skill-category">{skill.category}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <SkillsSection />
 
 
 
