@@ -44,6 +44,7 @@ const SkillsSection: React.FC = () => {
     <section id="skills" className="skills-section">
       <div className="container">
         <div className="skills-header">
+          <h2 className="section-title">Skills</h2>
           <ScrollFloat containerClassName="skills-title">
             <span className="title-icon">*</span> MY STACK
           </ScrollFloat>
