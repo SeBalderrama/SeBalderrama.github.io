@@ -88,10 +88,11 @@ function App() {
       }}>
         <div className="nav-container">
           <div className="nav-logo">
+            <img src="/mlogo.png" alt="Logo" className="nav-logo-img" />
             <span className="logo-text">SeBalderrama</span>
           </div>
           <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
-            <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
+            <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }}>Home</a></li>
             <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
             <li><a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a></li>
             <li><a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Skills</a></li>
@@ -119,6 +120,7 @@ function App() {
             <div className="hero-content">
               <div className="hero-text">
                 <div className="hero-title-container">
+                  <img src="/mlogo.png" alt="Logo" className="hero-logo" />
                   <h1 className="hero-name">Sebastian Balderrama</h1>
                 </div>
                 <h2 className="hero-subtitle">Full-Stack Software Developer</h2>
