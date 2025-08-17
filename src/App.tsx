@@ -32,12 +32,12 @@ function App() {
       hackathon: 'Hack Canada 2025 Finalist'
     },
     {
-      title: 'Paper',
-      description: 'Surveying Modern AI Systems and Intelligent Agent Architectures',
-      techStack: ['LLM', 'Agentic Systems', 'RAG'],
-      githubLink: 'https://github.com/sebalderrama/weather-dashboard',
+      title: 'Simulating RCV',
+      description: 'Exploring the potential outcomes of implementing ranked choice voting (RCV) systems: Instant Runoff Voting (IRV), Borda Count, and Defeat-Dropping Condorcet (DDC) in the 2021 Canadian federal election through Monte Carlo simulations.',
+      techStack: ['Monte Carlo Simulations', 'Pandas', 'Numpy'],
+      //githubLink: 'https://github.com/sebalderrama/weather-dashboard',
       //liveDemo: 'https://weather.sebalderrama.dev',
-      image: 'paperthumb.png'
+      image: 'simrcv.png'
       // No hackathon property = no label
     }
   ]
@@ -168,16 +168,16 @@ function App() {
               <div className="about-content">
                 <div className="about-text">
                   <p>
-                    Greetings, fellow humans! I'm Sebastian Balderrama, a software dev in Waterloo. I have an Honours BSc in <strong>Computer Science & Mathematics</strong> at Wilfrid Lauirer University.
+                    I'm Sebastian Balderrama, a software dev in Waterloo. I have an Honours BSc in <strong>Computer Science & Mathematics</strong> at Wilfrid Lauirer University.
                   </p>
                   <p>
                     I specialize in backend development and database systems using technologies like Python, Java, and Node.js. 
                     I also have experience in frontend development with modern JavaScript frameworks including React, Vue.js, and Next.js, 
                     along with proficiency in TypeScript and responsive design principles.
-                    Love attending hackathons! I've been to 2 hackathons so far, and I'm looking forward to many more.
+                    Aside from development, I love attending hackathons! I've been to 2 so far, and I'm looking forward to many more.
                   </p>
                   <p>
-                    In my free time, I'm probably outside, in the gym, geeking out on EDM, or working on side projects. Currently, into mobile game dev 👀.
+                    In my free time, I'm probably outside or working on side projects. Currently, into mobile game dev 👀 and AI.
                   </p>
                 </div>
               </div>
