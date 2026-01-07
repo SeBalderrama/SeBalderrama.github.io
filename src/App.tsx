@@ -172,13 +172,16 @@ function App() {
                     I'm Sebastian Balderrama, a software dev in Waterloo. I have an Honours BSc in <strong>Computer Science & Mathematics</strong> at Wilfrid Lauirer University.
                   </p>
                   <p>
-                    I specialize in backend development and database systems using technologies like Python, Java, and Node.js. 
-                    I also have experience in frontend development with modern JavaScript frameworks including React, Vue.js, and Next.js, 
-                    along with proficiency in TypeScript and responsive design principles.
-                    Aside from development, I love attending hackathons! I've been to 2 so far, and I'm looking forward to many more.
+                    I enjoy building systems end-to-end, with a strong focus on backend development, data-driven applications, and AI-powered systems. 
+                    My experience spans backend services and databases using Python, Java, Node.js, and SQL, as well as full-stack development with React and modern JavaScript frameworks. 
+                    I’ve worked on projects involving cloud deployment, containerization, machine learning, computer vision, and speech models, and I enjoy diving into complex systems to understand how all the pieces fit together.
+                    
+                    Outside of coursework and professional work, I’m active in the hackathon scene, recently placing <strong>2nd at SpurHacks and reaching the finals at Hack Canada.</strong> 
+                    I love collaborative environments and cool people!
                   </p>
                   <p>
-                    In my free time, I'm probably outside or working on side projects. Currently, into mobile game dev 👀 and AI.
+                    In my free time, I'm probably outside or working on side projects. 
+                    Currently: Playing with Sesame's CSM.
                   </p>
                 </div>
               </div>
