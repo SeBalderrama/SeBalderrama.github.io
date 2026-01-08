@@ -8,6 +8,11 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  const [isExpanded, setIsExpanded] = useState(false);
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   useEffect(() => {
     setIsLoaded(true)
   }, [])
@@ -124,9 +129,32 @@ function App() {
                   <h1 className="hero-name">Sebastian Balderrama</h1>
                 </div>
                 <h2 className="hero-subtitle">Full-Stack Software Developer</h2>
-                <p className="hero-description">
-                  Keep. Moving. Forward.
+                <p 
+                  className="hero-description" 
+                  onClick={toggleDescription}
+                  style={{ cursor: 'pointer', userSelect: 'none' }}
+                >
+                  James 1:2-8
                 </p>
+
+                {/* Revealed Content */}
+                {isExpanded && (
+                  <blockquote className="hero-description">
+                    Consider it pure joy, my brothers and sisters,<br></br>
+                    whenever you face trials of many kinds, because you<br></br>
+                    know that the testing of your faith produces<br></br>
+                    perseverance. Let perseverance finish its work so that<br></br>
+                    you may be mature and complete, not lacking anything.<br></br>
+                    If any of you lacks wisdom, you should ask God, who<br></br>
+                    gives generously to all without finding fault, and it will<br></br>
+                    be given to you. But when you ask, you must believe<br></br>
+                    and not doubt, because the one who doubts is like a<br></br>
+                    wave of the sea, blown and tossed by the wind. That<br></br>
+                    person should not expect to receive anything from the<br></br>
+                    Lord. Such a person is double-minded and unstable in<br></br>
+                    all they do.<br></br>
+                  </blockquote>
+                )}
                 <div className="hero-buttons">
                   <a href="https://github.com/sebalderrama" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                     GitHub
@@ -174,13 +202,13 @@ function App() {
                   <p>
                     I enjoy building systems end-to-end, with a strong focus on backend development, data-driven applications, and AI-powered systems. 
                     My experience spans backend services and databases using Python, Java, Node.js, and SQL, as well as full-stack development with React and modern JavaScript frameworks. 
-                    I’ve worked on projects involving cloud deployment, containerization, machine learning, computer vision, and speech models, and I enjoy diving into complex systems to understand how all the pieces fit together.
-                    
-                    Outside of coursework and professional work, I’m active in the hackathon scene, recently placing <strong>2nd at SpurHacks and reaching the finals at Hack Canada.</strong> 
+                    I've worked on projects involving cloud deployment, containerization, machine learning, computer vision, and speech models, and I enjoy diving into complex systems to understand how all the pieces fit together.
+                  </p>
+                  <p>
+                    Outside of coursework and professional work, I'm active in the hackathon scene, recently placing <strong>2nd at SpurHacks and reaching the finals at Hack Canada.</strong> 
                     I love collaborative environments and cool people!
                   </p>
                   <p>
-                    In my free time, I'm probably outside or working on side projects. 
                     Currently: Playing with Sesame's CSM.
                   </p>
                 </div>

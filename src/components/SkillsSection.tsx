@@ -16,22 +16,26 @@ interface SkillCategory {
 const SkillsSection: React.FC = () => {
   const skillCategories: SkillCategory[] = [
     {
-      name: 'FRONTEND',
+      name: 'FRONTEND\n\n+ BACKEND',
       skills: [
         { name: 'JavaScript', icon: 'JS', color: '#f7df1e' },
         { name: 'TypeScript', icon: 'TS', color: '#3178c6' },
         { name: 'React', icon: '⚛️', color: '#61dafb' },
         { name: 'Next.js', icon: 'N', color: '#000000' },
-        { name: 'Redux', icon: '🔄', color: '#764abc' },
-        { name: 'Tailwind CSS', icon: '🌊', color: '#06b6d4' },
-        { name: 'GSAP', icon: '🦸', color: '#88ce02' },
-        { name: 'Framer Motion', icon: '🎨', color: '#ff6b6b' },
-        { name: 'Sass', icon: 'S', color: '#cf649a' },
+        { name: 'Three.js', icon: '3', color: '#rgba(0, 0, 0, 0)'},
         { name: 'Bootstrap', icon: 'B', color: '#7952b3' }
       ]
     },
     {
       name: 'BACKEND',
+      skills: [
+        { name: 'Node.js', icon: '🟢', color: '#339933' },
+        { name: 'NestJS', icon: '🔥', color: '#e0234e' },
+        { name: 'Express.js', icon: 'eX', color: '#000000' }
+      ]
+    },
+    {
+      name: 'AI/ML',
       skills: [
         { name: 'Node.js', icon: '🟢', color: '#339933' },
         { name: 'NestJS', icon: '🔥', color: '#e0234e' },
@@ -45,9 +49,6 @@ const SkillsSection: React.FC = () => {
       <div className="container">
         <div className="skills-header">
           <h2 className="section-title">Skills</h2>
-          <ScrollFloat containerClassName="skills-title">
-            <span className="title-icon">*</span> MY STACK
-          </ScrollFloat>
         </div>
         
         <div className="skills-content">
@@ -56,8 +57,8 @@ const SkillsSection: React.FC = () => {
               <div className="category-header">
                 <ScrollFloat 
                   containerClassName="category-name"
-                  stagger={0.05}
-                  animationDuration={0.8}
+                  stagger={0}
+                  animationDuration={1}
                 >
                   {category.name}
                 </ScrollFloat>
@@ -68,8 +69,8 @@ const SkillsSection: React.FC = () => {
                   <div 
                     key={skillIndex} 
                     className="skill-item"
-                    style={{ animationDelay: `${skillIndex * 0.1}s` }}
-                  >
+                    //style={{ animationDelay: `${skillIndex * 0.1}s` }}
+                  > 
                     <div 
                       className="skill-icon"
                       style={{ 
@@ -79,7 +80,15 @@ const SkillsSection: React.FC = () => {
                     >
                       {skill.icon}
                     </div>
-                    <span className="skill-name">{skill.name}</span>
+                    <ScrollFloat
+                      textClassName='skill-name'
+                      scrollStart = "center bottom+=80%"
+                      scrollEnd = "bottom bottom-=70%"
+                      stagger={0}
+                      animationDuration={1}
+                    >
+                      {skill.name}
+                    </ScrollFloat>
                   </div>
                 ))}
               </div>

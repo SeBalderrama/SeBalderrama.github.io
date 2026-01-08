@@ -23,8 +23,8 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
   textClassName = "",
   animationDuration = 1,
   ease = "back.inOut(0.5)",
-  scrollStart = "center bottom+=60%",
-  scrollEnd = "bottom bottom-=40%",
+  scrollStart = "center bottom+=40%",
+  scrollEnd = "bottom bottom-=30%",
   stagger = 0.01
 }) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
