@@ -37,9 +37,7 @@ const SkillsSection: React.FC = () => {
     {
       name: 'AI/ML',
       skills: [
-        { name: 'Node.js', icon: '🟢', color: '#339933' },
-        { name: 'NestJS', icon: '🔥', color: '#e0234e' },
-        { name: 'Express.js', icon: 'eX', color: '#000000' }
+        { name: '*******WIP*WIP*******', icon: '🟢', color: '#339933' }
       ]
     }
   ];
