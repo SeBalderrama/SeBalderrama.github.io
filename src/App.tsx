@@ -3,6 +3,8 @@ import './App.css'
 import ProfileCard from './components/ProfileCard'
 import Particles from './components/Particles'
 import SkillsSection from './components/SkillsSection'
+import { ImagesSlider } from "./components/ui/images-slider";
+import { motion } from "motion/react";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -47,9 +49,11 @@ function App() {
     }
   ]
 
-
-
-
+  const images = [
+    "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  ];
 
   return (
     <>
@@ -65,7 +69,7 @@ function App() {
         overflow: 'hidden'
       }}>
         <Particles 
-          particleCount={200}
+          particleCount={300}
           particleSpread={10}
           speed={0.1}
           particleColors={['#ffffff', '#ffffff']}
@@ -78,17 +82,9 @@ function App() {
 
       {/* Navigation */}
       <nav className="navbar" style={{
-        position: 'fixed',
-        top: '20px',
-        left: '20px',
-        right: '20px',
-        width: 'calc(100vw - 40px)',
-        height: '70px',
-        background: 'rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(20px)',
         borderRadius: '20px',
-        zIndex: 99999,
-        border: '1px solid rgba(255, 255, 255, 0.2)',
+        zIndex: '99999',
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
       }}>
         <div className="nav-container">
@@ -97,7 +93,7 @@ function App() {
             <span className="logo-text">SeBalderrama</span>
           </div>
           <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }}>Home</a></li>
+            <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
             <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
             <li><a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a></li>
             <li><a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Skills</a></li>
@@ -124,9 +120,10 @@ function App() {
           <section id="home" className="hero">
             <div className="hero-content">
               <div className="hero-text">
-                <div className="hero-title-container">
+                <div className="hero-title-container" style={{display:'grid'}}>
                   <img src="/mlogo.png" alt="Logo" className="hero-logo" />
-                  <h1 className="hero-name">Sebastian Balderrama</h1>
+                  <h1 className="hero-name">Sebastian</h1>
+                  <h1 className="hero-name">Balderrama</h1>
                 </div>
                 <h2 className="hero-subtitle">Full-Stack Software Developer</h2>
                 <p 
@@ -186,15 +183,33 @@ function App() {
               </div>
             </div>
             <div className="scroll-indicator">
-              <div className="scroll-arrow"></div>
+              <a className = 'scroll-arrow' href="#about" onClick={() => setIsMobileMenuOpen(false)}/>
             </div>
           </section>
 
           {/* About Section */}
           <section id="about" className="about">
-            <div className="container">
-              <h2 className="section-title">About Me</h2>
+            <div className="container-2">
+            <ImagesSlider className="h-[40rem]" images={images}>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: -80,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.6,
+                }}
+                className="z-50 flex flex-col justify-center items-center"
+              >
+              </motion.div>
+            </ImagesSlider>
+              
               <div className="about-content">
+              <h2 className="section-title">About Me</h2>
                 <div className="about-text">
                   <p>
                     I'm Sebastian Balderrama, a software dev in Waterloo. I have an Honours BSc in <strong>Computer Science & Mathematics</strong> at Wilfrid Lauirer University.

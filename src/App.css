@@ -14,7 +14,7 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   line-height: 1.6;
-  color: #2d3748;
+  color: #000000; 
   min-height: 100vh;
   height: auto;
   margin: 0;
@@ -45,14 +45,21 @@ body {
   transform: translateY(0);
 }
 
-/* Background beams removed - no longer needed */
-
 .main-content {
   position: relative;
   z-index: 2;
   min-height: 100vh;
-  padding-top: 70px !important;
-  background: transparent;
+  /*padding-top: 70px !important;  Just shifted stuff down a bit*/
+  /*background: transparent;*/
+}
+
+.container-2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20%;
 }
 
 .container {
@@ -60,14 +67,17 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 /* Navigation */
-.navbar {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
 
-.navbar:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  width: calc(100vw - 40px);
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-container {
@@ -101,15 +111,6 @@ body {
   position: relative;
 }
 
-.nav-logo .logo-text::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
-}
 
 .nav-menu {
   display: flex;
@@ -133,31 +134,6 @@ body {
 .nav-menu a:hover {
   color: #e2e8f0;
   transform: translateY(-1px);
-}
-
-.nav-menu a::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #1a365d 0%, #2d3748 100%);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(-50%);
-  border-radius: 1px;
-}
-
-.nav-menu a:hover::before {
-  width: 100%;
-}
-
-.nav-menu a.active {
-  color: #e2e8f0;
-}
-
-.nav-menu a.active::before {
-  width: 100%;
 }
 
 /* Mobile Menu Toggle */
@@ -212,11 +188,11 @@ body {
 
 .hero-content {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 15%;
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  gap: 50%;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -243,9 +219,9 @@ body {
 }
 
 .hero-name {
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
   line-height: 1.2;
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
@@ -378,6 +354,7 @@ body {
   border-right: 2px solid #667eea;
   border-bottom: 2px solid #667eea;
   transform: rotate(45deg);
+  display: inline-block;
 }
 
 @keyframes bounce {
@@ -698,251 +675,6 @@ section {
   font-weight: bold;
 }
 
-/* Services Section */
-.services {
-  padding: 100px 0;
-  background: transparent;
-  position: relative;
-  z-index: 2;
-}
-
-.services-intro {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-}
-
-.services-intro p {
-  font-size: 1.1rem;
-  color: #ffffff;
-  line-height: 1.7;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.service-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.service-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.service-header h3 {
-  color: #ffffff;
-  font-size: 1.3rem;
-  font-weight: 600;
-  flex: 1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.service-rate {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.3rem;
-}
-
-.rate {
-  color: #3182ce;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.format {
-  color: #4a5568;
-  font-size: 0.9rem;
-}
-
-.service-description {
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.service-features {
-  margin-bottom: 2rem;
-}
-
-.service-features h4 {
-  color: #ffffff;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.service-features ul {
-  list-style: none;
-  padding: 0;
-}
-
-.service-features li {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  padding-left: 1.5rem;
-  position: relative;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.service-features li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #3182ce;
-  font-weight: bold;
-}
-
-.services-cta {
-  text-align: center;
-  margin-top: 4rem;
-  padding: 3rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-}
-
-.services-cta h3 {
-  color: #ffffff;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.services-cta p {
-  color: #ffffff;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-/* Credentials Section */
-.credentials-section {
-  margin: 3rem 0;
-}
-
-.credentials-section h3 {
-  color: #2d3748;
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.credentials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.credential-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-}
-
-.credential-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.credential-card h4 {
-  color: #ffffff;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.credential-card p {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.credential-card .year {
-  color: #3182ce;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* Languages Section */
-.languages-section {
-  margin: 3rem 0;
-}
-
-.languages-section h3 {
-  color: #2d3748;
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.languages-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-}
-
-.language-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-}
-
-.language-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.language-card h4 {
-  color: #ffffff;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.language-card .level {
-  color: #3182ce;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
 /* Resume Download */
 .resume-download {
   margin: 3rem 0;
@@ -1200,15 +932,6 @@ section {
   
   .section-title {
     font-size: 2rem;
-  }
-
-  .service-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .service-rate {
-    align-items: flex-start;
   }
 }
 
