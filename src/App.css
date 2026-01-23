@@ -58,8 +58,9 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 20%;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
 }
 
 .container {
@@ -188,11 +189,11 @@ body {
 
 .hero-content {
   max-width: 1200px;
-  margin: 0 15%;
+  margin: 0 auto;
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 50%;
+  gap: 20rem;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -391,9 +392,8 @@ section {
 }
 
 .about-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
+  text-align: right;
 }
 
 .about-text p {
