@@ -2,6 +2,7 @@
 // Sebastian Balderrama - Portfolio Homepage
 // index.astro
 import '../styles/global.css';
+import ProfileCard from '../../components/ProfileCard';
 ---
 
 <!DOCTYPE html>
@@ -297,40 +298,16 @@ import '../styles/global.css';
 
         <!-- Right - abstract visual -->
         <div class="opacity-0-init animate-fade-in delay-500 hidden md:flex items-center justify-center">
-          <div class="relative w-80 h-80">
-
-            <!-- Rotating ring -->
-            <div class="absolute inset-0 rounded-full border border-dashed border-border animate-spin-slow"></div>
-            <div class="absolute inset-6 rounded-full border border-dashed border-cyan-400 border-opacity-20 animate-spin-slow" style="animation-direction: reverse; animation-duration: 12s;"></div>
-
-            <!-- Center card -->
-            <div class="absolute inset-12 rounded-2xl bg-surface border border-border flex flex-col items-center justify-center gap-3 p-6">
-              <!-- Code icon -->
-              <div class="w-12 h-12 rounded-xl bg-cyan-500 bg-opacity-10 border border-cyan-400 border-opacity-20 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <div class="text-center">
-                <p class="font-mono text-xs text-cyan-400">~/portfolio</p>
-                <p class="font-mono text-xs text-text-muted mt-0.5">v1.0.0</p>
-              </div>
-              <!-- Stack dots -->
-              <div class="flex gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 opacity-80"></span>
-                <span class="w-2 h-2 rounded-full bg-amber-400 opacity-60"></span>
-                <span class="w-2 h-2 rounded-full bg-text-faint"></span>
-              </div>
-            </div>
-
-            <!-- Floating corner badges -->
-            <div class="absolute -top-3 -right-3 bg-surface border border-border rounded-lg px-3 py-1.5 font-mono text-xs text-cyan-400 animate-float">
-              ML
-            </div>
-            <div class="absolute -bottom-3 -left-3 bg-surface border border-border rounded-lg px-3 py-1.5 font-mono text-xs text-amber-400 animate-float" style="animation-delay: 2s;">
-              CS + Math
-            </div>
-          </div>
+          <ProfileCard
+            client:load
+            avatarUrl="/cleanga1.png"
+            eagerLoad={true}
+            name="Sebastian Balderrama"
+            title="Software Engineer"
+            handle="portfolio"
+            status="Available"
+            contactText="Contact"
+          />
         </div>
 
       </div>
@@ -602,7 +579,7 @@ import '../styles/global.css';
         </div>
 
         <p class="font-mono text-xs text-text-faint">
-          ù 2025 - Built with Astro &amp; TailwindCSS
+          ÔøΩ 2025 - Built with Astro &amp; TailwindCSS
         </p>
 
         <div class="flex items-center gap-5">

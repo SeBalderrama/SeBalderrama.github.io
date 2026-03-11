@@ -12,6 +12,9 @@ export default {
         bg: '#080c0f',
         surface: '#0f1419',
         border: '#1e2a35',
+        ring: 'var(--ring)',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
         cyan: {
           400: '#22d3ee',
           500: '#06b6d4',
