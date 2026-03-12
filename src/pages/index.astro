@@ -66,7 +66,7 @@ const projects = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -150,26 +150,25 @@ const projects = [
           </div>
 
           <h1 class="opacity-0-init animate-fade-up delay-100 font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
-            YO, I'm <br />
-            <span class="grad-text">Sebastian</span>
+            
+            <span class="grad-text">Sebastian Balderrama</span>
             <span class="text-text-muted"> -</span>
-            <br />
-            Software Engineer
+            <br/>
+            <span class="block mt-1 text-xl sm:text-2xl font-sans font-normal text-text-muted">Software Engineer</span>
           </h1>
 
           <p class="opacity-0-init animate-fade-up delay-200 font-sans text-base text-text-muted leading-relaxed max-w-md">
-            Computer Science &amp; Mathematics graduate building software, machine learning projects, and web applications. I turn complex problems into elegant solutions.
+            I turn simple problems into complex solutions. 
+            <br/>Wait, that doesn't sound right...
           </p>
 
-          <div class="opacity-0-init animate-fade-up delay-300 flex flex-wrap gap-4">
+          <div class="opacity-0-init animate-fade-up delay-300 flex flex-wrap gap-4 items-center">
             <a
               href="#projects"
-              class="btn-primary inline-flex items-center gap-2 bg-green-500 text-bg font-sans font-semibold text-sm px-6 py-3 rounded-full green-glow"
+              class="button-49"
+              role="button"
             >
               View Projects
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
             </a>
             <a
               href="#contact"
@@ -243,13 +242,16 @@ const projects = [
           <div class="space-y-8">
             <div class="space-y-5 text-text-muted leading-relaxed font-sans text-[15px]">
               <p>
-                I'm a Computer Science and Mathematics graduate with a genuine love for building things that matter. From training machine learning models to crafting responsive web applications, I enjoy the full spectrum of software engineering.
+                I'm a Software Dev in Waterloo with an Honours BSc in Computer Science & Mathematics @ Wilfrid Laurier University.
               </p>
               <p>
-                My academic background gives me a strong foundation in algorithms, statistics, and mathematical reasoning - skills I apply daily when designing systems and solving real-world problems. I'm particularly drawn to the intersection of data and software.
+                I enjoy building systems end-to-end, with a strong focus on backend development and AI-powered systems. My experience spans backend services and databases using Python, Java, Node.js, and SQL, as well as full-stack development with React and modern JS frameworks (like Astro which this site is built with!). I've worked on projects involving cloud deployment, containerization, machine learning, computer vision, and speech models.
               </p>
               <p>
-                When I'm not coding, I'm exploring new research in machine learning, contributing to open-source, or finding ways to make data tell clearer stories.
+                Outside of coursework and professional work, I'm active in the Hackathon scene, recently placing Top 10 at Hack Canada 2026, 2nd at SpurHacks 2025, and Top 5 at Hack Canada 2025. I'm also part of the choir at my church, co-lead a Spanish tutoring club at UW, and (slowly) learning to play the guitar.
+              </p>
+              <p>
+                Future: Self-hosting on an old craptop.
               </p>
             </div>
 
@@ -260,7 +262,7 @@ const projects = [
                 {[
                   'Python', 'Java', 'TypeScript', 'React',
                   'SQL', 'Machine Learning', 'R', 'C',
-                  'Astro', 'Node.js', 'Git', 'TailwindCSS',
+                  'Astro', 'Node.js', 'Git', 'TailwindCSS', 'Auth0', 'Firebase'
                 ].map((skill) => (
                   <span class="skill-tag font-mono text-xs text-text-muted border border-border px-3 py-1.5 rounded-full bg-surface cursor-default">
                     {skill}
@@ -444,7 +446,7 @@ const projects = [
           </div>
 
           <a
-            href="mailto:sebastian@example.com"
+            href="mailto:sebastian.balderr@gmail.com"
             class="btn-primary inline-flex items-center gap-2 bg-green-500 text-bg font-sans font-semibold text-sm px-8 py-3.5 rounded-full green-glow"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -456,7 +458,7 @@ const projects = [
           <!-- Social row -->
           <div class="flex items-center justify-center gap-8 pt-4 border-t border-border">
 
-            <a href="mailto:sebastian@example.com" class="social-link flex flex-col items-center gap-2 text-text-muted group">
+            <a href="mailto:sebastian.balderr@gmail.com" class="social-link flex flex-col items-center gap-2 text-text-muted group">
               <div class="w-10 h-10 rounded-xl border border-border bg-surface flex items-center justify-center group-hover:border-green-400 group-hover:border-opacity-40 transition-colors">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -465,7 +467,7 @@ const projects = [
               <span class="font-mono text-xs">Email</span>
             </a>
 
-            <a href="https://github.com/" target="_blank" rel="noopener" class="social-link flex flex-col items-center gap-2 text-text-muted group">
+            <a href="https://github.com/SeBalderrama" target="_blank" rel="noopener" class="social-link flex flex-col items-center gap-2 text-text-muted group">
               <div class="w-10 h-10 rounded-xl border border-border bg-surface flex items-center justify-center group-hover:border-green-400 group-hover:border-opacity-40 transition-colors">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
@@ -474,7 +476,7 @@ const projects = [
               <span class="font-mono text-xs">GitHub</span>
             </a>
 
-            <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link flex flex-col items-center gap-2 text-text-muted group">
+            <a href="https://www.linkedin.com/in/sebalderrama/" target="_blank" rel="noopener" class="social-link flex flex-col items-center gap-2 text-text-muted group">
               <div class="w-10 h-10 rounded-xl border border-border bg-surface flex items-center justify-center group-hover:border-green-400 group-hover:border-opacity-40 transition-colors">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -504,12 +506,12 @@ const projects = [
         </p>
 
         <div class="flex items-center gap-5">
-          <a href="https://github.com/" target="_blank" rel="noopener" class="text-text-faint hover:text-green-400 transition-colors">
+          <a href="https://github.com/SeBalderrama" target="_blank" rel="noopener" class="text-text-faint hover:text-green-400 transition-colors">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
             </svg>
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="text-text-faint hover:text-green-400 transition-colors">
+          <a href="https://www.linkedin.com/in/sebalderrama/" target="_blank" rel="noopener" class="text-text-faint hover:text-green-400 transition-colors">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
