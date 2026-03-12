@@ -10,22 +10,26 @@ export default {
       },
       colors: {
         bg: '#080c0f',
-        surface: '#0f1419',
+        surface: '#0d1810',
         border: '#1e2a35',
         ring: 'var(--ring)',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        green: {
+          400: '#00cc44',
+          500: '#00aa22',
+        },
         cyan: {
-          400: '#22d3ee',
-          500: '#06b6d4',
+          400: '#00cc44',
+          500: '#00aa22',
         },
         amber: {
           400: '#fbbf24',
         },
         text: {
           primary: '#e8edf2',
-          muted: '#6b8394',
-          faint: '#2d4050',
+          muted: '#8b9caa',
+          faint: '#3d4f5f',
         },
       },
       animation: {
