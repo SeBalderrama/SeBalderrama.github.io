@@ -94,7 +94,7 @@ const projects = [
 
         <!-- Desktop Links -->
         <ul class="hidden md:flex items-center gap-8">
-          {['Home', 'Projects', 'Experience', 'About', 'Contact'].map((item) => (
+          {['Home', 'Projects', /* 'Experience', */ 'About', 'Contact'].map((item) => (
             <li>
               <a
                 href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
@@ -121,7 +121,7 @@ const projects = [
       <!-- Mobile Menu -->
       <div id="mobile-menu" class="md:hidden overflow-hidden border-t border-border">
         <ul class="flex flex-col px-6 py-4 gap-4">
-          {['Home', 'Projects', 'Experience', 'About', 'Contact'].map((item) => (
+          {['Home', 'Projects', /* 'Experience', */ 'About', 'Contact'].map((item) => (
             <li>
               <a
                 href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
@@ -200,7 +200,7 @@ const projects = [
             eagerLoad={true}
             name="Sebastian Balderrama"
             title="Software Engineer"
-            handle="portfolio"
+            handle="SeBalderrama"
             status="Available"
             contactText="Contact"
           />
@@ -360,37 +360,24 @@ const projects = [
       </div>
     </section>
 
-    <!-- ───────────────────────── EXPERIENCE ───────────────────────── -->
+    <!-- ───────────────────────── EXPERIENCE (commented out) ─────────────────────────
 <section id="experience" class="relative py-28">
   <div class="max-w-6xl mx-auto px-6">
 
-    <!-- Header -->
     <div class="reveal mb-16">
       <span class="font-mono text-xs text-green-400 tracking-widest uppercase">04 — Experience</span>
       <h2 class="font-display text-4xl lg:text-5xl mt-3 leading-tight">Where I've Worked</h2>
     </div>
 
-    <!-- Timeline -->
     <div class="reveal relative">
-
-      <!-- Vertical line -->
       <div class="absolute left-0 md:left-[200px] top-0 bottom-0 w-px bg-gradient-to-b from-green-400 via-border to-transparent opacity-40 hidden sm:block"></div>
-
       <div class="flex flex-col gap-12">
-
-        <!-- ── Internship 1 ── -->
         <div class="group relative sm:grid sm:grid-cols-[200px_1fr] gap-10 items-start">
-
-          <!-- Date / company col -->
           <div class="sm:text-right sm:pr-10 mb-4 sm:mb-0">
             <span class="font-mono text-xs text-green-400 tracking-widest">May 2024 — Aug 2024</span>
             <p class="font-sans text-xs text-text-muted mt-1">Toronto, ON</p>
           </div>
-
-          <!-- Dot on timeline -->
           <div class="absolute left-[-5px] md:left-[196px] top-1 w-2.5 h-2.5 rounded-full border-2 border-green-400 bg-bg hidden sm:block group-hover:bg-green-400 transition-colors duration-300"></div>
-
-          <!-- Card -->
           <div class="project-card bg-surface border border-border rounded-2xl p-6 space-y-4 sm:ml-10">
             <div class="flex items-start justify-between gap-4">
               <div>
@@ -403,7 +390,6 @@ const projects = [
                 </svg>
               </div>
             </div>
-
             <ul class="space-y-2">
               {[
                 'Developed frontend and backend features for Veeva Vault as part of a small agile team operating on a four-week release cycle.',
@@ -416,7 +402,6 @@ const projects = [
                 </li>
               ))}
             </ul>
-
             <div class="flex flex-wrap gap-1.5 pt-1">
               {['Python','React','TypeScript', 'Node.js', 'SQL'].map((t) => (
                 <span class="font-mono text-xs text-text-muted bg-bg border border-border px-2 py-0.5 rounded-full">{t}</span>
@@ -428,6 +413,7 @@ const projects = [
     </div>
   </div>
 </section>
+───────────────────────── END EXPERIENCE ───────────────────────── -->
 
     <!-- CONTACT -->
     <section id="contact" class="relative py-28 overflow-hidden">
